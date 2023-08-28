@@ -16,7 +16,7 @@ const useContentDelete = (userData?: ILoginedUserInfo) => {
     confirmText: "확인",
     confirmFn: () => {
       setIsDeleteOpen(false);
-      router.push(`/detail/content/${userData?.id}`);
+      router.push("/lounge");
     },
   };
 
