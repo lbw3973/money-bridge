@@ -19,7 +19,7 @@ function BranchCreation() {
     e.preventDefault();
     mutate({
       companyId: selectCompany.companyId,
-      name: selectCompany.name,
+      name: selectCompany.name.split(" ")[1],
       address: selectCompany.address,
       specificAddress: selectCompany.specificAddress,
     });
