@@ -40,7 +40,6 @@ const useShare = (url: string, title: string, description: string, imageUrl: str
   };
 
   if (isKaKaoOpen) {
-    if (!truncatedDescription) return;
     shareKakao(url, title, truncatedDescription, imageUrl);
     setIsKaKaoOpen(false);
   }
