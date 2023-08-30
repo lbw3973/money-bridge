@@ -69,7 +69,10 @@ function JoinInformation({ type }: { type: JoinFormType }) {
 
   const { mutate } = useMutation(phoneNumCheck, {
     onSuccess: data => {
+      console.log(data.duplicated);
       if (!data.duplicated) {
+        setIsCheck(!data.duplicated);
+      } else {
         setIsCheck(!data.duplicated);
       }
       setIsButtonOpen(!data.duplicated);
@@ -86,7 +89,7 @@ function JoinInformation({ type }: { type: JoinFormType }) {
   errors.text?.type === "matches" ? (errors.text.ref?.value === "" ? (errors.text = undefined) : "") : "";
   return (
     <>
-      <p className="text-xl font-bold leading-7 my-14">{joinStepRenderer[type].title}</p>
+      <p className="my-14 text-xl font-bold leading-7">{joinStepRenderer[type].title}</p>
       <p className="mb-2 text-xs leading-[18px]">{joinStepRenderer[type].sub}</p>
       <form onSubmit={onSubmit}>
         <div className="relative flex items-center">
