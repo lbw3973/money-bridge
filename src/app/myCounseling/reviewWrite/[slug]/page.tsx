@@ -27,6 +27,7 @@ const ADHERENCE: { [key: string]: string } = {
 };
 
 function ReviewWritePage({ params: { slug } }: { params: { slug: string } }) {
+  const [isCheck, setIsCheck] = useState(false);
   const router = useRouter();
   const { userInfo, userLoading, isLogined } = useGetUserInfo();
   if (!isLogined && !userLoading) {
@@ -36,7 +37,7 @@ function ReviewWritePage({ params: { slug } }: { params: { slug: string } }) {
 
   const [reviewState, setReviewState] = useState({
     reservationId: Number(slug),
-    adherence: "BAD",
+    adherence: "NORMAL",
     styleList: [] as string[],
     content: "",
   });
@@ -84,6 +85,7 @@ function ReviewWritePage({ params: { slug } }: { params: { slug: string } }) {
       content: review,
     }));
   };
+
   const modalContents = {
     content: "후기를 작성 하시겠습니까?",
     confirmText: "확인",
@@ -95,6 +97,10 @@ function ReviewWritePage({ params: { slug } }: { params: { slug: string } }) {
     router.back();
   };
   const completedHandler = () => {
+    if (reviewState.styleList.length === 0) {
+      setIsCheck(true);
+      return;
+    }
     setIsButtonOpen(true);
   };
 
@@ -148,6 +154,7 @@ function ReviewWritePage({ params: { slug } }: { params: { slug: string } }) {
               </li>
             ))}
           </ul>
+          {isCheck && <p className="mt-2 font-bold text-status-error">* 상담 스타일을 선택해주세요.</p>}
         </article>
         <article className="w-full pt-3">
           <h3 className="font-bold">상담은 어떠셨나요? 자세한 후기를 남겨주세요.</h3>
