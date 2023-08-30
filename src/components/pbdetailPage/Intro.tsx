@@ -2,13 +2,13 @@ import Image from "next/image";
 import ButtonModal from "@/components/common/ButtonModal";
 import { usePathname, useRouter } from "next/navigation";
 import usePbBookMark from "@/hooks/usePbBookMark";
-import useShare from "@/hooks/useShare";
 import bookmark from "/public/assets/images/icon/pbcontent_bookmark.svg";
 import bookmark_filled from "/public/assets/images/icon/pbcontent_bookmark_filled.svg";
 import share from "/public/assets/images/icon/share.svg";
 import PbContentButton from "@/components/pbdetailPage/PbContentButton";
 import { IIntroData } from "@/types/pb";
 import { ILoginedUserInfo } from "@/types/common";
+import useShare from "@/hooks/useShare";
 
 function Intro({ introData, userData }: { introData: IIntroData; userData: ILoginedUserInfo }) {
   const { id, profile, name, isBookmarked, branchName, msg, companyId, companyLogo, reserveCount, reviewCount } =
@@ -25,6 +25,7 @@ function Intro({ introData, userData }: { introData: IIntroData; userData: ILogi
     true,
     "getPbProfile",
   );
+
   const {
     isShare,
     isShareOpen,
