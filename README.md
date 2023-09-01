@@ -7,8 +7,14 @@
 #### ⏰ 개발 기간
 
 - 2023.06.08 ~ 2023. 06. 28
+- 프로젝트 노션 : [Notion](https://www.notion.so/yousunzoo/0e436500b0bc459f9bcf00dbf259724c)
 
-<br/>
+#### 🔗 실행 방법
+```
+$ git clone https://github.com/FINALALT1/money-bridge.git
+$ yarn
+$ yarn dev
+```
 
 #### 🔗 배포 사이트
 
@@ -22,13 +28,14 @@
 |📍메인페이지<br />📍고객관리<br />📍일정관리<br />📍예약현황(PB, 투자자)<br />📍위치정보서비스  |📍상담 예약<br />📍투자 성향 분석 <br/> 📍마이페이지 </br>📍PB찾기 | 📍로그인<br />📍이메일 찾기<br />📍비밀번호 찾기<br />📍회원가입<br /> | 📍라운지<br />📍콘텐츠<br />📍북마크<br />📍PB 정보<br /> 📍검색<br />                                    | 
 | [권범준 작업 내역](https://github.com/FINALALT1/money-bridge/issues?q=author%3Akjungit+) | [유선주 작업 내역](https://github.com/FINALALT1/money-bridge/issues?q=author%3Ayousunzoo+) | [이병욱 작업 내역](https://github.com/FINALALT1/money-bridge/issues?q=author%3Albw3973) | [장현준 작업 내역](https://github.com/FINALALT1/money-bridge/issues?q=author%3Ahyeon17+) |
 
+<br />
 
 ## 💻 개발 환경
 ### 🔧 스킬셋
 ![FE_skillset](https://github.com/FINALALT1/money-bridge/assets/100064540/e0fd5ee7-874a-483c-a1f5-285d3b3cbfb5)
 
 
-<br /><br />
+<br />
 
 ### 📁 프로젝트 폴더 구조
 ```
