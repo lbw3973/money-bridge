@@ -58,7 +58,6 @@ function SingleInputForm({ type }: { type: InputFormType }) {
         break;
     }
   };
-  console.log(isValid);
   errors.first?.type === "required" ? (errors.first = undefined) : "";
   errors.first?.type === "min" ? (errors.first.ref?.value === "" ? (errors.first = undefined) : "") : "";
 
