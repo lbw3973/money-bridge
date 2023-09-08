@@ -16,7 +16,6 @@ function BranchCreation() {
 
   const { mutate } = useMutation(registerBranch, {
     onSuccess: data => {
-      console.log("성공?");
       setIsButtonOpen(true);
     },
     onError: () => {
