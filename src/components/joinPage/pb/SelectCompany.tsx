@@ -47,9 +47,7 @@ function SelectCompany() {
 
   const companyList = useGetCompanyList();
   const router = useRouter();
-  useEffect(() => {
-    // 도로명 주소 변환 함수
-  }, [selectCompany]);
+
 
   const handleChangeCompany = (item: ICompanyInput) => {
     if (item.name !== company.name) {
@@ -103,7 +101,7 @@ function SelectCompany() {
 
   return (
     <>
-      <p className="mb-6 mt-14 text-xl font-bold leading-7">
+      <p className="mb-6 text-xl font-bold leading-7 mt-14">
         소속되어있는 증권사를
         <br /> 선택해주세요.
       </p>
@@ -120,8 +118,8 @@ function SelectCompany() {
       </div>
       <div className="mb-6 mt-[58px] flex items-center justify-between ">
         <p className="text-xl font-bold ">지점을 등록해주세요.</p>
-        <button className="text-md flex cursor-pointer items-center text-gray-heavy" onClick={handleRegModal}>
-          <span className="cursor-pointer font-bold">없는 지점 직접 등록하기</span>
+        <button className="flex items-center cursor-pointer text-md text-gray-heavy" onClick={handleRegModal}>
+          <span className="font-bold cursor-pointer">없는 지점 직접 등록하기</span>
           <Image src={question} alt="question" width={20} height={20} className="ml-2" />
         </button>
       </div>
@@ -187,14 +185,14 @@ function SelectCompany() {
         </ModalLayout>
       )}
       {isButtonOpen && (
-        <div className="fixed left-0 top-0 z-30 h-full w-full">
+        <div className="fixed top-0 left-0 z-30 w-full h-full">
           <div className="modal_background" onClick={() => setIsOpen(false)} />
-          <div className="popup flex flex-col justify-between">
+          <div className="flex flex-col justify-between popup">
             <div className="text-center">
               <h3 className={`text-lg mb-2 break-keep pt-20 text-center`}>지점등록이 완료되었습니다.</h3>
             </div>
             <div className="flex w-full gap-4">
-              <button onClick={() => setIsButtonOpen(false)} className="popup-button w-full font-bold">
+              <button onClick={() => setIsButtonOpen(false)} className="w-full font-bold popup-button">
                 확인
               </button>
             </div>
