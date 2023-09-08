@@ -1,17 +1,26 @@
 import { registerBranch } from "@/app/apis/services/common";
 import { searchLoadLocation } from "@/app/apis/services/location";
+import ButtonModal from "@/components/common/ButtonModal";
+import ErrorModal from "@/components/common/ErrorModal";
+import SingleButton from "@/components/common/SingleButton";
+import ModalLayout from "@/components/reservationPage/ModalLayout";
 import { useBranchRestrationStore } from "@/store/branchRestrationStore";
 import { useMutation } from "@tanstack/react-query";
-import React, { MouseEvent, useEffect } from "react";
+import React, { MouseEvent, useEffect, useState } from "react";
 
 const TEXT_STYLE = "mr-2 font-bold w-[70px]";
 
 function BranchCreation() {
+  const [isErrorModal, setIsErrorModal] = useState(false);
   const { selectCompany, setSelectCompany, setIsRegSelect, setIsButtonOpen } = useBranchRestrationStore();
 
   const { mutate } = useMutation(registerBranch, {
-    onSuccess: () => {
+    onSuccess: data => {
+      console.log("성공?");
       setIsButtonOpen(true);
+    },
+    onError: () => {
+      setIsErrorModal(true);
     },
   });
 
@@ -23,7 +32,6 @@ function BranchCreation() {
       address: selectCompany.address,
       specificAddress: selectCompany.specificAddress,
     });
-    setIsRegSelect(false);
   };
 
   useEffect(() => {
@@ -45,6 +53,11 @@ function BranchCreation() {
     });
   };
 
+  const modalContents = {
+    content: "등록되어 있는 지점입니다. 다시 확인해주세요.",
+    confirmText: "확인",
+    confirmFn: () => setIsErrorModal(false),
+  };
   return (
     <section className="h-[460px]">
       <h3 className="mb-8 text-xl font-bold leading-7">지점 등록</h3>
@@ -67,6 +80,7 @@ function BranchCreation() {
           등록하기
         </button>
       </form>
+      <ButtonModal modalContents={modalContents} isOpen={isErrorModal} setIsOpen={setIsErrorModal} />
     </section>
   );
 }
