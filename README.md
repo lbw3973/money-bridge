@@ -7,7 +7,6 @@
 #### ⏰ 개발 기간
 
 - 2023.06.08 ~ 2023. 06. 28
-- 팀 레포: [Github](https://github.com/FINALALT1/money-bridge)
 - 프로젝트 노션 : [Notion](https://www.notion.so/yousunzoo/0e436500b0bc459f9bcf00dbf259724c)
 
 #### 🔗 실행 방법
